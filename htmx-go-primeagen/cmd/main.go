@@ -16,7 +16,7 @@ func (t *Templates) Render(
 	w io.Writer,
 	name string,
 	data interface{},
-	c echo.Context,
+	_ echo.Context,
 ) error {
 	return t.templates.ExecuteTemplate(w, name, data)
 }
@@ -39,8 +39,12 @@ func main() {
 	e.Renderer = newTemplates()
 
 	e.GET("/", func(c echo.Context) error {
-		count.Count++
 		// Renders index block (see index.html)
+		return c.Render(http.StatusOK, "index", count)
+	})
+
+	e.POST("/count", func(c echo.Context) error {
+		count.Count++
 		return c.Render(http.StatusOK, "index", count)
 	})
 
