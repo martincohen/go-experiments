@@ -1,0 +1,2 @@
+- Look into [templ](https://templ.guide) (typesafe templates)
+- `air` [issues on Windows](https://github.com/air-verse/air/issues/511#issuecomment-1922022473) 
