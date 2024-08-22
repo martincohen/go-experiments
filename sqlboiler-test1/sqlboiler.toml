@@ -1,0 +1,15 @@
+pkgname  = "models"
+output   = "db/models"
+wipe     = true
+no-tests = true
+add-enum-types = true
+
+[psql]
+  dbname = "mutiny_go"
+  host   = "localhost"
+  port   = 5432
+  user   = "root"
+  pass   = "root"
+  schema = "public"
+  blacklist = ["schema_migrations"]
+  sslmode = "disable"
