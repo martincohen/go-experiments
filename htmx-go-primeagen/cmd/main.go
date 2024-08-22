@@ -39,13 +39,12 @@ func main() {
 	e.Renderer = newTemplates()
 
 	e.GET("/", func(c echo.Context) error {
-		// Renders index block (see index.html)
 		return c.Render(http.StatusOK, "index", count)
 	})
 
 	e.POST("/count", func(c echo.Context) error {
 		count.Count++
-		return c.Render(http.StatusOK, "index", count)
+		return c.Render(http.StatusOK, "count", count)
 	})
 
 	e.Logger.Fatal(e.Start(":42069"))
